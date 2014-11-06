@@ -1,0 +1,15 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,500);
+
+body {
+	background:#e5e5e5;
+	font-family: Roboto, Helvetica, Arial, sans-serif;
+	font-weight: 300;
+}
+
+div {
+	margin: 10px;
+	padding: 10px;
+	background: #ffffff;
+	border-radius: 3px;
+	box-shadow: 2px 2px 4px rgba(0,0,0,.1)
+}

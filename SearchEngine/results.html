@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My App Engine Search Engine!</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>
+        var count;
+        var getACount = function() {
+            console.log(document.getElementsByTagName('a').length);
+            return document.getElementsByTagName('a').length;
+            
+        };   
+        var Main = function() {
+             count = $("a").length; 
+	         $("#abc").html(count); 
+             var str=""
+             $("a").each(function() {
+                 str = str + " " + $(this).attr("href"); 
+                 $(".links").html($(".links").html() + ", " + $(this).attr("href"));     /*try upload href into list into database*/
+                 
+             });
+             $("#def").attr("value", str)
+          
+             console.log(str);
+             
+        };
+  
+        $(document).ready(Main);
+    </script>
+  </head>
+  <body>
+    <h1>Length {{ length }}</h1>
+    <h1>Number of Links <span id="abc"></span> </h1>
+    <div class="links"></div>
+    <form method="get" action="data">
+      <input id="def" name="allLinks" value="">
+      <p><button>Display Links</button></p>
+    </form>
+  </body>
+</html>
+

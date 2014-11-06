@@ -1,0 +1,24 @@
+<!DOCTYPE>
+<head>
+    <link href="/static/style.css" rel="stylesheet">
+</head>
+<title>{{ playlist.title }}</title>
+<h1>{{ playlist.title }}</h1>
+<p>Playlist by {{ playlist.owner }}</p>
+<h2>Add a song</h2>
+
+<form action="/playlist" method="post">
+    <input name="artist" placeholder="The song's artist">
+    <input name="title" placeholder="The song's title">
+    <input name="playlist_key" value="{{ playlist.key.urlsafe() }}" type="hidden">
+    <button>Add this song</button>
+</form>
+
+{% if songs %}
+    <h2>Songs</h2>
+    <div class="songs">
+        {% for song in songs %}
+            <div>{{song.title}} by {{song.artist}}</div>
+        {% endfor %}
+    </div>
+{% endif %}

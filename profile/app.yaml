@@ -1,0 +1,18 @@
+application: minnie-profile
+runtime: python27
+version: 1
+api_version: 1
+threadsafe: false
+
+libraries:
+- name: jinja2
+  version: latest   
+
+
+handlers:
+- url: /static
+  static_dir: static
+
+
+- url: /.*
+  script: main.app 

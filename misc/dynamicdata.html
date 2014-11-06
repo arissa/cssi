@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+</style>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+
+<script>
+
+
+	
+	var GetFlickrUrl = function(photo) {
+		return "https://farm" + photo.farm + ".staticflickr.com/" + photo.server + "/" + photo.id + "_" + photo.secret + ".jpg";
+	};
+	
+	
+	var AddPhoto = function(photo){
+		$("#photos").append("<li><p>" + photo.title + "</p><img src = " + GetFlickrUrl(photo) + " data-id = " + photo.id + "></li>");
+		$("#" + photo.id).hover(ShowAuthorInfo);
+		
+	};
+	
+	var AddAllPhotos = function(photos)  {
+		for (i in photos) {
+			AddPhoto(photos[i]);
+		}
+		
+	};
+	
+	var DisplayPhotos = function(flickrPhotos){
+		console.log(flickrPhotos);
+		AddAllPhotos(flickrPhotos.photos.photo);
+		
+		
+	};
+	
+	var Load = function() {
+		var flickr = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=764a4955d5ea19e5e7ca0b4a8f9603a7&format=json&jsoncallback=?";
+		var params = {"tags": $("#searchbox").val()};
+		$.getJSON(flickr, params, DisplayPhotos);
+	}
+	
+	var Clear = function(){
+		$("#photos").empty();
+	}
+	
+	var ShowAuthorInfo = function(photo) {
+		//var x = event.target;
+		
+		console.log(photo);
+		
+	}
+	
+
+	
+	var Main = function() {
+		
+		$("#load").click(Load);
+		$("#clear").click(Clear);
+		
+	};
+	
+	$(document).ready(Main);
+</script>
+
+</head>
+
+
+<body>
+    <input id='searchbox'>
+	<input type='button' value='Load' id = 'load'>
+	<input type = 'button' value = 'Clear' id = 'clear'>
+	<p>Here are some photos:</p>
+	<ul id = "photos">
+		
+	</ul>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <title>My Wall</title>
+    <link href="/static/style.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <h1>Wall Posts</h1>
+    
+
+    <form action="/" method="post">
+      <input name="sender" placeholder="Your name"><br>
+      <textarea name="message" placeholder="Write a message"></textarea><br>
+      <input name="mood" placeholder="How are you feeling?"><br>
+      <button>Post it!</button>
+    </form>
+
+    {% for wall_post in wall_posts %}
+      <div class="post">
+        <div class="message">{{ wall_post.message }}</div>
+        <div class="sender">---{{ wall_post.sender.capitalize()}}</div>
+        <div class="mood">(feeling {{wall_post.mood}})</div>
+        <div class="timestamp">{{wall_post.timestamp}}</div>
+
+        <form action="/delete" method="post">
+          <input type="hidden" name="key" value="{{wall_post.key.urlsafe()}}">
+          <button>Delete</button>
+        </form>
+      </div>
+    {% endfor %}
+
+
+  </body>
+
+</html>

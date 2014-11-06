@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Search Engine (Phase 1)</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+
+
+    <script>
+
+      var Main = function() {
+            var links = [];
+            $("a").each(function() {
+                links.push($(this).attr("href"));
+                console.log("Link: " + $(this).attr("href"));
+            });
+
+            
+        };
+  
+      $(document).ready(Main);
+
+
+    </script>
+
+
+
+
+  </head>
+  <body>
+    <h1>Page stats:</h1>
+    <ul>
+      <li>Number of characters: {{num_chars}}</li>
+      <li>Number of links: {{num_links}}</li>
+    </ul>
+
+    <button>Display Links</button>
+
+    <div></div>
+  </body>
+</html>

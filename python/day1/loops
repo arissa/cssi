@@ -1,0 +1,5 @@
+names = ['amy', 'nina', 'toby', 'bob']
+for name in names:
+	if n == 'nina':
+		break
+	print 'continuing'

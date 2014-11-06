@@ -1,0 +1,22 @@
+There are, in general, three parts to any web search engine: crawling, indexing, and searching. The first part, crawling, involves visiting every page of the web. The second part, indexing, organizes the information you find on those pages so you can look it up quickly when someone searches. The last part, searching, actually takes the users query, pulls results out of the index, and combines them into the familiar search results page you see.
+
+Your mission is to build a program that lets you simulate the first part of a search engine, the crawler. And what do you call a thing that crawls along the web? A spider!
+
+So how does the spider find all the pages on the web? Does Google wait for the author of every new site, blog post, tweet, or news article to visit Google and tell us about it? That would be too slow and unreliable. It needs to explore the web on its own. A crawler loads a page, finds all the links on that page, and can follow all the links to find yet more pages, and repeats the process with each of those.
+
+Basic Features
+Let the user enter a URL for the page to crawl.
+Fetch the HTML page and show some stats about it (number of characters, number of links, perhaps something else). You may find it helpful to refer to App Engine's URL fetch documentation.
+
+Intermediate Features
+Extract the URLs of all the links in the web page you've crawled. Show them to the user.
+If the user clicks on one of the links you're showing, you should crawl that page and show info about it.
+Advanced Features
+(Requires Database): Keep track of the pages you've visited and where they link in a database.
+Also keep track of inbound links. For instance, if you find that page X and page Y both link to page Z, you should count two inbound links to page Z. Show a leaderboard of the pages with the most inbound links. (Note: this is an important component of how PageRank works: the secret sauce that made Google so successful.)
+
+https://developers.google.com/appengine/docs/python/urlfetch/
+http://en.wikipedia.org/wiki/PageRank
+
+      {# for link in links #}
+    <!--<a href="{{link}}">Link</a>-->

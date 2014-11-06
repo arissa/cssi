@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My App Engine Search Engine!</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>
+        var Main = function() {
+            var links = [];
+            $("a").each(function() {
+                links.push($(this).attr("href"));
+                console.log("Link: " + $(this).attr("href"));
+            });
+            
+        };
+  
+        $(document).ready(Main);
+    </script>
+  </head>
+  <body>
+    <h1>Display Links<span id="abc"></span> </h1>
+  </body>
+</html>

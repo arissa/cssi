@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My App Engine Search Engine!</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>
+    </script>
+  </head>
+    <h1>Links!</h1>
+        <a href="{{ logout_url }}">Log out </a>
+        {% if links %}
+            <h2>My Urls</h2>
+            <ul>
+                {% for link in links %}
+                <li>
+                    <a href="{{ link.aLink }}">
+                        {{ link.aLink }}
+                    </a>
+                </li>
+                {% endfor %}  
+            </ul>  
+        {% endif %}
+    <h1>Number of Links <span id="abc"></span> </h1>
+    <div class="links"></div>
+    <form method="get" action="data">
+      <input id="def" name="allLinks" value="">
+      {% for link in links %}
+          <div class="post">
+              <form action="/display" method="post">
+                  <input name="key" value="{{ link.key.urlsafe() }}" type="hidden">                  
+                  
+              </form>
+              <br>
+              
+          </div>
+      {% endfor %}
+      <p><button>Display Links</button></p>
+    </form>
+  </body>
+</html>
+

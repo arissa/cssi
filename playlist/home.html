@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<head>
+    <link href="/static/style.css" rel="stylesheet">
+
+</head>
+<body>
+<title>Playlists</title>
+<h1>My Awesome Playlist App</h1>
+
+
+{% if login_url %}
+	<a href="{{login_url}}">log in</a>
+{% endif %}
+
+
+{% if logout_url %}
+	<a href="{{logout_url}}">log out</a>
+{% endif %}
+
+{% if user %}
+	Welcome, {{user}}!
+
+	{% if playlists %}
+		<h2>My Playlists</h2>
+		<div class="playlists">
+		{% for playlist in playlists %}
+			<div><a href= "{{playlist.url()}}">{{playlist.title}}</a></div></li>
+		{% endfor %}
+		</div>
+	{% endif %}
+
+	<h2>Create a Playlist</h2>
+	<form action="/" method="post">
+		<input id="title" name="title" placeholder="Playlist title goes here">
+		<button id="submit" disabled>Create playlist</button>
+	</form>
+	
+
+{% endif %}
+
+</body>
+
+
+<script src="/static/jquery-2.1.1.min.js"></script>
+<script src="/static/playlist.js"></script>
+

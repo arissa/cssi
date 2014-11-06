@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My App Engine Search Engine!</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>
+        var getACount = function() {
+            console.log(document.getElementsByTagName('a').length);
+        };   
+        var Main = function() {
+            getACount(); 
+	  
+        };
+  
+        $(document).ready(Main);
+    </script>
+  </head>
+  <body>
+    <h1>Search Engine for {{name}}</h1>
+    <form action="url">
+      <p><label>Type in the url for the page to crawl.
+         <input name="typeUrl"></label></p>
+      <p><button>Search</button></p>
+    </form>
+  </body>
+</html>

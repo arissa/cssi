@@ -1,0 +1,9 @@
+application: minnie-helloworld
+runtime: python27
+version: 2
+api_version: 1
+threadsafe: false
+
+handlers:
+- url: /.*
+  script: helloworld.app

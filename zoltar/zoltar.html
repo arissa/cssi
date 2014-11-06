@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<title>Zoltar</title>
+
+{% if count > 0 %}
+  <p>Your fortune is: {{fortune}}!</p>
+{% endif %}
+
+{% if count < 5 %}
+  <form action="/" method="post">
+    <input type="hidden" name="count" value= {{count}}>
+    <button>Ask for a fortune</button>
+  </form>
+{% else %}
+  <p>OK buddy, I think you've had enough.</p>
+{% endif %}
